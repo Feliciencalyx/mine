@@ -8,6 +8,10 @@
     "dev": "nodemon server.js",
     "seed": "node seeders/seedData.js"
   },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "keywords": ["cybersecurity", "training", "education"],
   "author": "",
   "license": "MIT",

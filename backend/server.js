@@ -14,7 +14,15 @@ connectDB();
 
 // Middleware
 app.use(helmet());
-app.use(cors());
+
+// CORS configuration
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));

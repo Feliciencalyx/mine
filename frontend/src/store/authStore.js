@@ -2,7 +2,13 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import axios from 'axios'
 
-const API_URL = '/api/auth'
+const API_BASE = import.meta.env.VITE_API_URL || ''
+const API_URL = `${API_BASE}/api/auth`
+
+// Configure axios defaults
+if (import.meta.env.VITE_API_URL) {
+  axios.defaults.baseURL = import.meta.env.VITE_API_URL
+}
 
 export const useAuthStore = create(
   persist(
